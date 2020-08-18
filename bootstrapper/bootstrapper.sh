@@ -7,7 +7,10 @@ then
 else
     step ca certificate --not-after $DURATION $COMMON_NAME $CRT $KEY
 fi
-chmod 644 $CRT $KEY
+
+step ca federation $FEDERATED_PEM
+
+chmod 644 $CRT $KEY $FEDERATED_PEM
 
 step ca root $STEP_ROOT
 chmod 644 $STEP_ROOT
